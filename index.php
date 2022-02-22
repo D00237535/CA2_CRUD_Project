@@ -6,7 +6,7 @@ if (!isset($category_id)) {
 $category_id = filter_input(INPUT_GET, 'category_id', 
 FILTER_VALIDATE_INT);
 if ($category_id == NULL || $category_id == FALSE) {
-$category_id = 1;
+$category_id = 2;
 }
 }
 
@@ -43,6 +43,7 @@ $statement3->closeCursor();
 include('includes/header.php');
 ?>
 <h1>Record List</h1>
+<h2>Item</h2>
 
 <aside>
 <!-- display a list of categories -->
