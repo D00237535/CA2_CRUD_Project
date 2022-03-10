@@ -1,7 +1,9 @@
 <!-- the head section -->
 <head>
-<title>My Modes For League of Legends</title>
-<link rel="stylesheet" type="text/css" href="CSS/main.css">
+    <link href="main.css" rel="stylesheet">
+<h2>My Modes For League of Legends</h2>
+<h2>Hello World</h2>
+
 </head>
 
 <!-- the body section -->

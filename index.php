@@ -38,6 +38,7 @@ $statement3->execute();
 $records = $statement3->fetchAll();
 $statement3->closeCursor();
 ?>
+
 <div class="container">
 <?php
 include('includes/header.php');
@@ -63,40 +64,39 @@ include('includes/header.php');
 <section>
 <!-- display a table of records -->
 <h2><?php echo $category_name; ?></h2>
-<table>
-<tr>
+<div>
+
+<div><?php foreach ($records as $record) : ?></div>
+
+<div><?php echo $record['description']; ?></br></div>
+
+<div classanme = image><img src="image_uploads/<?php echo $record['image']; ?>" width="100px" height="100px" /></div>
+
+<div>
+    <form action="delete_record.php" method="post" id="delete_record_form">
+
+        <input type="hidden" name="record_id" value="<?php echo $record['recordID']; ?>">
+
+        <input type="hidden" name="category_id" value="<?php echo $record['categoryID']; ?>">
+
+        <input type="submit" value="Delete">
+
+        </form>
+
+        <form action="edit_record_form.php" method="post" id="delete_record_form">
+
+        <input type="hidden" name="record_id" value="<?php echo $record['recordID']; ?>">
+
+        <input type="hidden" name="category_id" value="<?php echo $record['categoryID']; ?>">
+
+        <input type="submit" value="Edit">
+    </form>
+</div>
 
 
-
-</tr>
-<?php foreach ($records as $record) : ?>
-<tr>
-
-<?php echo $record['description']; ?></td>
-
-<td><img src="image_uploads/<?php echo $record['image']; ?>" width="100px" height="100px" /></td>
-
-<td><form action="delete_record.php" method="post"
-id="delete_record_form">
-
-<input type="hidden" name="record_id"
-value="<?php echo $record['recordID']; ?>">
-<input type="hidden" name="category_id"
-value="<?php echo $record['categoryID']; ?>">
-<input type="submit" value="Delete">
-
-</form></td>
-<td><form action="edit_record_form.php" method="post"
-id="delete_record_form">
-<input type="hidden" name="record_id"
-value="<?php echo $record['recordID']; ?>">
-<input type="hidden" name="category_id"
-value="<?php echo $record['categoryID']; ?>">
-<input type="submit" value="Edit">
-</form></td>
-</tr>
+</div>
 <?php endforeach; ?>
-</table>
+</div>
 <p><a href="add_record_form.php">Add Record</a></p>
 <p><a href="category_list.php">Manage Categories</a></p>
 </section>
